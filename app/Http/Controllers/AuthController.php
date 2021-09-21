@@ -9,18 +9,18 @@ use DB;
 
 class AuthController extends Controller
 {
-    
- /**
+
+    /**
      * Create a new AuthController instance.
      *
      * @return void
      */
     public function __construct()
     {
-        $this->middleware('JWT', ['except' => ['login','signup']]);
+        $this->middleware('JWT', ['except' => ['login', 'signup']]);
     }
 
-    // 
+    //
 
     /**
      * Get a JWT via given credentials.
@@ -29,17 +29,15 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
-         $validateData = $request->validate([
-         'email' => 'required',
-         'password' => 'required',
-         
-         ]);
+        $validateData = $request->validate([
+            'email' => 'required',
+            'password' => 'required',
 
-
+        ]);
 
         $credentials = request(['email', 'password']);
 
-        if (! $token = auth()->attempt($credentials)) {
+        if (!$token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Email or Password Invalid'], 401);
         }
 
@@ -80,25 +78,23 @@ class AuthController extends Controller
 
 
 
-    public function signup(Request $request){
-     
-     $validateData = $request->validate([
-       'email' => 'required|unique:users|max:255',
-       'name' => 'required',
-       'password' => 'required|min:6|confirmed'
+    public function signup(Request $request)
+    {
 
-     ]);
+        $validateData = $request->validate([
+            'email' => 'required|unique:users|max:255',
+            'name' => 'required',
+            'password' => 'required|min:6|confirmed'
 
-     $data = array();
-     $data['name'] = $request->name;
-     $data['email'] = $request->email;
-     $data['password'] = Hash::make($request->password);
-     DB::table('users')->insert($data);
+        ]);
 
-     return $this->login($request);
+        $data = array();
+        $data['name'] = $request->name;
+        $data['email'] = $request->email;
+        $data['password'] = Hash::make($request->password);
+        DB::table('users')->insert($data);
 
-
-
+        return $this->login($request);
     }
 
 
@@ -122,13 +118,4 @@ class AuthController extends Controller
             'email' => auth()->user()->email,
         ]);
     }
-
-
-
-
-
-
-
-
 }
- 
