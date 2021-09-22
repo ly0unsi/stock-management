@@ -283,8 +283,9 @@
 
                     <!-- Container Fluid-->
                     <div class="container-fluid" id="container-wrapper">
-
-                        <router-view></router-view>
+                        <transition name="fade">
+                            <router-view></router-view>
+                        </transition>
                     </div>
                     <!---Container Fluid-->
                 </div>
