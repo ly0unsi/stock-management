@@ -57,15 +57,31 @@
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSupplier"
                         aria-expanded="true" aria-controls="collapseSupplier">
-                        <i class="fas fa-plane"></i>
+                        <i class="fas fa-truck"></i>
                         <span>Supplier</span>
                     </a>
                     <div id="collapseSupplier" class="collapse" aria-labelledby="headingBootstrap"
                         data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Supplier</h6>
-                            <router-link class="collapse-item" to="alerts.html">Add one</router-link>
-                            <router-link class="collapse-item" to="buttons.html">See All</router-link>
+                            <router-link class="collapse-item" to="/store-supplier">Add one</router-link>
+                            <router-link class="collapse-item" to="/supplier">See All</router-link>
+
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategory"
+                        aria-expanded="true" aria-controls="collapseCategory">
+                        <i class="fas fa-align-left"></i>
+                        <span>Category</span>
+                    </a>
+                    <div id="collapseCategory" class="collapse" aria-labelledby="headingBootstrap"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Category</h6>
+                            <router-link class="collapse-item" to="/store-category">Add one</router-link>
+                            <router-link class="collapse-item" to="/category">See All</router-link>
 
                         </div>
                     </div>
