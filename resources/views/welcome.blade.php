@@ -189,7 +189,7 @@
                     <!-- Topbar -->
 
                     <!-- Container Fluid-->
-                    <div class="container-fluid" id="container-wrapper">
+                    <div class="container-fluid relative" id="container-wrapper">
                         <transition name="custom-classes-transition" enter-active-class="animated fadeInRightBig"
                             leave-active-class="animated fadeOutLeftBig">
                             <router-view></router-view>

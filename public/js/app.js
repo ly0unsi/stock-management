@@ -50101,7 +50101,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "page " }, [
+  return _c("div", { staticClass: "page col-115" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-xl-12 col-lg-12 col-md-12" }, [
         _c("div", { staticClass: "card shadow-sm my-2" }, [
@@ -50239,7 +50239,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "page " }, [
+  return _c("div", { staticClass: "page col-115" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-xl-12 col-lg-12 col-md-12" }, [
         _c("div", { staticClass: "card shadow-sm my-2" }, [
@@ -50377,7 +50377,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "page " }, [
+  return _c("div", { staticClass: "page col-115" }, [
     _c("div", { staticClass: "row col-md-12" }, [
       _c(
         "div",
@@ -50546,7 +50546,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "page " }, [
+  return _c("div", { staticClass: "page col-115" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-xl-12 col-lg-12 col-md-12" }, [
         _c("div", { staticClass: "card shadow-sm my-2" }, [
@@ -50980,7 +50980,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "page " }, [
+  return _c("div", { staticClass: "page col-115" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-xl-12 col-lg-12 col-md-12" }, [
         _c("div", { staticClass: "card shadow-sm my-2" }, [
@@ -51836,7 +51836,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "page " }, [
+  return _c("div", { staticClass: "page col-115" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-xl-12 col-lg-12 col-md-12" }, [
         _c("div", { staticClass: "card shadow-sm my-2" }, [
@@ -52218,7 +52218,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "page " }, [
+    return _c("div", { staticClass: "page col-115" }, [
       _c(
         "div",
         {
@@ -54277,7 +54277,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "page " }, [
+  return _c("div", { staticClass: "page col-115" }, [
     _c(
       "div",
       { staticClass: "row" },
@@ -54921,7 +54921,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "page " }, [
+  return _c("div", { staticClass: "page col-115" }, [
     _c(
       "div",
       { staticClass: "row" },
@@ -55431,7 +55431,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "page " }, [
+  return _c("div", { staticClass: "page col-115" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-xl-12 col-lg-12 col-md-12" }, [
         _c("div", { staticClass: "card shadow-sm my-2" }, [
@@ -55783,7 +55783,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "page " }, [
+  return _c("div", { staticClass: "page col-115" }, [
     _c("div", { staticClass: "row col-md-12" }, [
       _c(
         "div",
