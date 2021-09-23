@@ -21,7 +21,7 @@
         <div id="wrapper">
             <!-- Sidebar -->
             <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                     <div class="sidebar-brand-icon">
                         <img src="{{asset('backend/img/logo/logo2.png')}}">
                     </div>
@@ -99,6 +99,38 @@
                             <h6 class="collapse-header">Product</h6>
                             <router-link class="collapse-item" to="/store-product">Add one</router-link>
                             <router-link class="collapse-item" to="/product">See All</router-link>
+
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseExpense"
+                        aria-expanded="true" aria-controls="collapseExpense">
+                        <i class="far fa-money-bill-alt"></i>
+                        <span>Expense</span>
+                    </a>
+                    <div id="collapseExpense" class="collapse" aria-labelledby="headingBootstrap"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Expense</h6>
+                            <router-link class="collapse-item" to="/store-expense">Add one</router-link>
+                            <router-link class="collapse-item" to="/expense">See All</router-link>
+
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSalary"
+                        aria-expanded="true" aria-controls="collapseSalary">
+                        <i class="fas fa-cash-register"></i>
+                        <span>Salary</span>
+                    </a>
+                    <div id="collapseSalary" class="collapse" aria-labelledby="headingBootstrap"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Salary</h6>
+                            <router-link class="collapse-item" to="/given-salary">Pay an employee</router-link>
+                            <router-link class="collapse-item" to="/salary">All Salaries</router-link>
 
                         </div>
                     </div>
