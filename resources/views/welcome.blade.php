@@ -190,8 +190,8 @@
 
                     <!-- Container Fluid-->
                     <div class="container-fluid relative" id="container-wrapper">
-                        <transition name="custom-classes-transition" enter-active-class="animated fadeInRightBig"
-                            leave-active-class="animated fadeOutLeftBig">
+                        <transition name="custom-classes-transition"
+                            enter-active-class="animated fadeInRight animated__delay-2s">
                             <router-view></router-view>
                         </transition>
 

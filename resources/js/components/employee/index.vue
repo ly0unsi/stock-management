@@ -1,5 +1,5 @@
 <template>
-    <div class="page col-115">
+    <div class="col-12">
         <div class="row col-12">
             <div class="col-md-6">
                 <router-link

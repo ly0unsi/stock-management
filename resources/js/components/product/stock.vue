@@ -1,5 +1,5 @@
 <template>
-    <div class="page col-115">
+    <div class="col-12">
         <div class="row">
             <router-link to="/store-product" class="btn btn-primary"
                 >Add Product
