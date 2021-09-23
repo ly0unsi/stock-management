@@ -2331,11 +2331,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     if (!User.loggedIn()) {
       this.$router.push({
-        name: '/'
+        name: "/"
       });
     }
   },
@@ -2351,9 +2363,9 @@ __webpack_require__.r(__webpack_exports__);
     categoryInsert: function categoryInsert() {
       var _this = this;
 
-      axios.post('/api/category', this.form).then(function () {
+      axios.post("/api/category", this.form).then(function () {
         _this.$router.push({
-          name: 'category'
+          name: "category"
         });
 
         Notification.success();
@@ -2441,18 +2453,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = (_created$data$created = {
   created: function created() {
     if (!User.loggedIn()) {
       this.$router.push({
-        name: '/'
+        name: "/"
       });
     }
   },
   data: function data() {
     return {
       form: {
-        category_name: ''
+        category_name: ""
       },
       errors: {}
     };
@@ -2461,18 +2479,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   var _this = this;
 
   var id = this.$route.params.id;
-  axios.get('/api/category/' + id).then(function (_ref) {
+  axios.get("/api/category/" + id).then(function (_ref) {
     var data = _ref.data;
     return _this.form = data;
-  })["catch"](console.log('error'));
+  })["catch"](console.log("error"));
 }), _defineProperty(_created$data$created, "methods", {
   categoryUpdate: function categoryUpdate() {
     var _this2 = this;
 
     var id = this.$route.params.id;
-    axios.patch('/api/category/' + id, this.form).then(function () {
+    axios.patch("/api/category/" + id, this.form).then(function () {
       _this2.$router.push({
-        name: 'category'
+        name: "category"
       });
 
       Notification.success();
@@ -2556,18 +2574,36 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
   created: function created() {
     if (!User.loggedIn()) {
       this.$router.push({
-        name: '/'
+        name: "/"
       });
     }
   },
   data: function data() {
     return {
       categories: [],
-      searchTerm: ''
+      searchTerm: ""
     };
   },
   computed: {
@@ -2583,7 +2619,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     allCategory: function allCategory() {
       var _this2 = this;
 
-      axios.get('/api/category/').then(function (_ref) {
+      axios.get("/api/category/").then(function (_ref) {
         var data = _ref.data;
         return _this2.categories = data;
       })["catch"]();
@@ -2592,25 +2628,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this3 = this;
 
       Swal.fire({
-        title: 'Are you sure?',
+        title: "Are you sure?",
         text: "You won't be able to revert this!",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
       }).then(function (result) {
         if (result.value) {
-          axios["delete"]('/api/category/' + id).then(function () {
+          axios["delete"]("/api/category/" + id).then(function () {
             _this3.categories = _this3.categories.filter(function (category) {
               return category.id != id;
             });
           })["catch"](function () {
             _this3.$router.push({
-              name: 'category'
+              name: "category"
             });
           });
-          Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+          Swal.fire("Deleted!", "Your file has been deleted.", "success");
         }
       });
     }
@@ -2734,11 +2770,108 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     if (!User.loggedIn()) {
       this.$router.push({
-        name: '/'
+        name: "/"
       });
     }
   },
@@ -2778,9 +2911,9 @@ __webpack_require__.r(__webpack_exports__);
     employeeInsert: function employeeInsert() {
       var _this2 = this;
 
-      axios.post('/api/employee', this.form).then(function () {
+      axios.post("/api/employee", this.form).then(function () {
         _this2.$router.push({
-          name: 'employees'
+          name: "employees"
         });
 
         Notification.success();
@@ -2930,26 +3063,108 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = (_created$data$created = {
   created: function created() {
     if (!User.loggedIn()) {
       this.$router.push({
-        name: '/'
+        name: "/"
       });
     }
   },
   data: function data() {
     return {
       form: {
-        name: '',
-        email: '',
-        phone: '',
-        sallery: '',
-        address: '',
-        photo: '',
-        newphoto: '',
-        nid: '',
-        joining_date: ''
+        name: "",
+        email: "",
+        phone: "",
+        sallery: "",
+        address: "",
+        photo: "",
+        newphoto: "",
+        nid: "",
+        joining_date: ""
       },
       errors: {}
     };
@@ -2958,10 +3173,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   var _this = this;
 
   var id = this.$route.params.id;
-  axios.get('/api/employee/' + id).then(function (_ref) {
+  axios.get("/api/employee/" + id).then(function (_ref) {
     var data = _ref.data;
     return _this.form = data;
-  })["catch"](console.log('error'));
+  })["catch"](console.log("error"));
 }), _defineProperty(_created$data$created, "methods", {
   onFileSelected: function onFileSelected(event) {
     var _this2 = this;
@@ -2985,9 +3200,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     var _this3 = this;
 
     var id = this.$route.params.id;
-    axios.patch('/api/employee/' + id, this.form).then(function () {
+    axios.patch("/api/employee/" + id, this.form).then(function () {
       _this3.$router.push({
-        name: 'employees'
+        name: "employees"
       });
 
       Notification.success();
@@ -3080,18 +3295,46 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
   created: function created() {
     if (!User.loggedIn()) {
       this.$router.push({
-        name: '/'
+        name: "/"
       });
     }
   },
   data: function data() {
     return {
       employees: [],
-      searchTerm: ''
+      searchTerm: ""
     };
   },
   computed: {
@@ -3107,7 +3350,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     allEmployee: function allEmployee() {
       var _this2 = this;
 
-      axios.get('/api/employee/').then(function (_ref) {
+      axios.get("/api/employee/").then(function (_ref) {
         var data = _ref.data;
         return _this2.employees = data;
       })["catch"]();
@@ -3116,25 +3359,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this3 = this;
 
       Swal.fire({
-        title: 'Are you sure?',
+        title: "Are you sure?",
         text: "You won't be able to revert this!",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
       }).then(function (result) {
         if (result.value) {
-          axios["delete"]('/api/employee/' + id).then(function () {
+          axios["delete"]("/api/employee/" + id).then(function () {
             _this3.employees = _this3.employees.filter(function (employee) {
               return employee.id != id;
             });
           })["catch"](function () {
             _this3.$router.push({
-              name: 'employees'
+              name: "employees"
             });
           });
-          Swal.fire('Deleted!', 'Your employee has been deleted.', 'success');
+          Swal.fire("Deleted!", "Your employee has been deleted.", "success");
         }
       });
     }
@@ -3223,19 +3466,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     if (!User.loggedIn()) {
       this.$router.push({
-        name: '/'
+        name: "/"
       });
     }
   },
   data: function data() {
     return {
       form: {
-        details: '',
-        amount: ''
+        details: "",
+        amount: ""
       },
       errors: {}
     };
@@ -3244,9 +3507,9 @@ __webpack_require__.r(__webpack_exports__);
     expenseInsert: function expenseInsert() {
       var _this = this;
 
-      axios.post('/api/expense', this.form).then(function () {
+      axios.post("/api/expense", this.form).then(function () {
         _this.$router.push({
-          name: 'expense'
+          name: "expense"
         });
 
         Notification.success();
@@ -3340,19 +3603,40 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = (_created$data$created = {
   created: function created() {
     if (!User.loggedIn()) {
       this.$router.push({
-        name: '/'
+        name: "/"
       });
     }
   },
   data: function data() {
     return {
       form: {
-        details: '',
-        amount: ''
+        details: "",
+        amount: ""
       },
       errors: {}
     };
@@ -3361,18 +3645,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   var _this = this;
 
   var id = this.$route.params.id;
-  axios.get('/api/expense/' + id).then(function (_ref) {
+  axios.get("/api/expense/" + id).then(function (_ref) {
     var data = _ref.data;
     return _this.form = data;
-  })["catch"](console.log('error'));
+  })["catch"](console.log("error"));
 }), _defineProperty(_created$data$created, "methods", {
   expenseUpdate: function expenseUpdate() {
     var _this2 = this;
 
     var id = this.$route.params.id;
-    axios.patch('/api/expense/' + id, this.form).then(function () {
+    axios.patch("/api/expense/" + id, this.form).then(function () {
       _this2.$router.push({
-        name: 'expense'
+        name: "expense"
       });
 
       Notification.success();
@@ -3460,18 +3744,36 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
   created: function created() {
     if (!User.loggedIn()) {
       this.$router.push({
-        name: '/'
+        name: "/"
       });
     }
   },
   data: function data() {
     return {
       expenses: [],
-      searchTerm: ''
+      searchTerm: ""
     };
   },
   computed: {
@@ -3487,7 +3789,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     allExpense: function allExpense() {
       var _this2 = this;
 
-      axios.get('/api/expense/').then(function (_ref) {
+      axios.get("/api/expense/").then(function (_ref) {
         var data = _ref.data;
         return _this2.expenses = data;
       })["catch"]();
@@ -3496,25 +3798,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this3 = this;
 
       Swal.fire({
-        title: 'Are you sure?',
+        title: "Are you sure?",
         text: "You won't be able to revert this!",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
       }).then(function (result) {
         if (result.value) {
-          axios["delete"]('/api/expense/' + id).then(function () {
+          axios["delete"]("/api/expense/" + id).then(function () {
             _this3.expenses = _this3.expenses.filter(function (expense) {
               return expense.id != id;
             });
           })["catch"](function () {
             _this3.$router.push({
-              name: 'expense'
+              name: "expense"
             });
           });
-          Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+          Swal.fire("Deleted!", "Your file has been deleted.", "success");
         }
       });
     }
@@ -3635,11 +3937,50 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     if (!User.loggedIn()) {
       this.$router.push({
-        name: '/'
+        name: "/"
       });
     }
   }
@@ -4082,28 +4423,166 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = (_created$data$created = {
   created: function created() {
     if (!User.loggedIn()) {
       this.$router.push({
-        name: '/'
+        name: "/"
       });
     }
   },
   data: function data() {
     return {
       form: {
-        product_name: '',
-        product_code: '',
-        category_id: '',
-        supplier_id: '',
-        root: '',
-        image: '',
-        newimage: '',
-        buying_price: '',
-        selling_price: '',
-        buying_date: '',
-        product_quantity: ''
+        product_name: "",
+        product_code: "",
+        category_id: "",
+        supplier_id: "",
+        root: "",
+        image: "",
+        newimage: "",
+        buying_price: "",
+        selling_price: "",
+        buying_date: "",
+        product_quantity: ""
       },
       errors: {},
       categories: {},
@@ -4114,17 +4593,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   var _this = this;
 
   var id = this.$route.params.id;
-  axios.get('/api/product/' + id).then(function (_ref) {
+  axios.get("/api/product/" + id).then(function (_ref) {
     var data = _ref.data;
     return _this.form = data;
-  })["catch"](console.log('error')); // Category Collected
+  })["catch"](console.log("error")); // Category Collected
 
-  axios.get('/api/category/').then(function (_ref2) {
+  axios.get("/api/category/").then(function (_ref2) {
     var data = _ref2.data;
     return _this.categories = data;
   }); // Supplier Collected
 
-  axios.get('/api/supplier/').then(function (_ref3) {
+  axios.get("/api/supplier/").then(function (_ref3) {
     var data = _ref3.data;
     return _this.suppliers = data;
   });
@@ -4150,9 +4629,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     var _this3 = this;
 
     var id = this.$route.params.id;
-    axios.patch('/api/product/' + id, this.form).then(function () {
+    axios.patch("/api/product/" + id, this.form).then(function () {
       _this3.$router.push({
-        name: 'product'
+        name: "product"
       });
 
       Notification.success();
@@ -4247,18 +4726,40 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
   created: function created() {
     if (!User.loggedIn()) {
       this.$router.push({
-        name: '/'
+        name: "/"
       });
     }
   },
   data: function data() {
     return {
       products: [],
-      searchTerm: ''
+      searchTerm: ""
     };
   },
   computed: {
@@ -4274,7 +4775,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     allProduct: function allProduct() {
       var _this2 = this;
 
-      axios.get('/api/product/').then(function (_ref) {
+      axios.get("/api/product/").then(function (_ref) {
         var data = _ref.data;
         return _this2.products = data;
       })["catch"]();
@@ -4283,25 +4784,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this3 = this;
 
       Swal.fire({
-        title: 'Are you sure?',
+        title: "Are you sure?",
         text: "You won't be able to revert this!",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
       }).then(function (result) {
         if (result.value) {
-          axios["delete"]('/api/product/' + id).then(function () {
+          axios["delete"]("/api/product/" + id).then(function () {
             _this3.products = _this3.products.filter(function (product) {
               return product.id != id;
             });
           })["catch"](function () {
             _this3.$router.push({
-              name: 'product'
+              name: "product"
             });
           });
-          Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+          Swal.fire("Deleted!", "Your file has been deleted.", "success");
         }
       });
     }
@@ -4389,18 +4890,36 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
   created: function created() {
     if (!User.loggedIn()) {
       this.$router.push({
-        name: '/'
+        name: "/"
       });
     }
   },
   data: function data() {
     return {
       employees: [],
-      searchTerm: ''
+      searchTerm: ""
     };
   },
   computed: {
@@ -4416,7 +4935,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     allEmployee: function allEmployee() {
       var _this2 = this;
 
-      axios.get('/api/employee/').then(function (_ref) {
+      axios.get("/api/employee/").then(function (_ref) {
         var data = _ref.data;
         return _this2.employees = data;
       })["catch"]();
@@ -4540,21 +5059,66 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = (_created$data$created = {
   created: function created() {
     if (!User.loggedIn()) {
       this.$router.push({
-        name: '/'
+        name: "/"
       });
     }
   },
   data: function data() {
     return {
       form: {
-        name: '',
-        email: '',
-        salary_month: '',
-        sallery: ''
+        name: "",
+        email: "",
+        salary_month: "",
+        sallery: ""
       },
       errors: {}
     };
@@ -4563,22 +5127,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   var _this = this;
 
   var id = this.$route.params.id;
-  axios.get('/api/employee/' + id).then(function (_ref) {
+  axios.get("/api/employee/" + id).then(function (_ref) {
     var data = _ref.data;
     return _this.form = data;
-  })["catch"](console.log('error'));
+  })["catch"](console.log("error"));
 }), _defineProperty(_created$data$created, "methods", {
   SalaryPaid: function SalaryPaid() {
     var _this2 = this;
 
     var id = this.$route.params.id;
-    axios.post('/api/salary/paid/' + id, this.form).then(function (res) {
+    axios.post("/api/salary/paid/" + id, this.form).then(function (res) {
       if (res.data) {
-        Swal.fire('Impossible', res.data, 'error');
+        Swal.fire("Impossible", res.data, "error");
         console.log(res.data);
       } else {
         _this2.$router.push({
-          name: 'given-salary'
+          name: "given-salary"
         });
 
         Notification.success();
@@ -4701,22 +5265,72 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = (_created$data$created = {
   created: function created() {
     if (!User.loggedIn()) {
       this.$router.push({
-        name: '/'
+        name: "/"
       });
     }
   },
   data: function data() {
     return {
       form: {
-        name: '',
-        email: '',
-        salary_month: '',
-        amount: '',
-        employee_id: ''
+        name: "",
+        email: "",
+        salary_month: "",
+        amount: "",
+        employee_id: ""
       },
       errors: {}
     };
@@ -4725,18 +5339,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   var _this = this;
 
   var id = this.$route.params.id;
-  axios.get('/api/edit/salary/' + id).then(function (_ref) {
+  axios.get("/api/edit/salary/" + id).then(function (_ref) {
     var data = _ref.data;
     return _this.form = data;
-  })["catch"](console.log('error'));
+  })["catch"](console.log("error"));
 }), _defineProperty(_created$data$created, "methods", {
   SalaryUpdate: function SalaryUpdate() {
     var _this2 = this;
 
     var id = this.$route.params.id;
-    axios.post('/api/salary/update/' + id, this.form).then(function () {
+    axios.post("/api/salary/update/" + id, this.form).then(function () {
       _this2.$router.push({
-        name: 'salary'
+        name: "salary"
       });
 
       Notification.success();
@@ -4885,18 +5499,61 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
   created: function created() {
     if (!User.loggedIn()) {
       this.$router.push({
-        name: '/'
+        name: "/"
       });
     }
   },
   data: function data() {
     return {
       salaries: [],
-      searchTerm: ''
+      searchTerm: ""
     };
   },
   computed: {
@@ -4912,7 +5569,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     allSalary: function allSalary() {
       var _this2 = this;
 
-      axios.get('/api/salary/').then(function (_ref) {
+      axios.get("/api/salary/").then(function (_ref) {
         var data = _ref.data;
         return _this2.salaries = data;
       })["catch"]();
@@ -5001,18 +5658,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
   created: function created() {
     if (!User.loggedIn()) {
       this.$router.push({
-        name: '/'
+        name: "/"
       });
     }
   },
   data: function data() {
     return {
       salaries: [],
-      searchTerm: ''
+      searchTerm: ""
     };
   },
   computed: {
@@ -5029,7 +5692,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this2 = this;
 
       var id = this.$route.params.id;
-      axios.get('/api/salary/view/' + id).then(function (_ref) {
+      axios.get("/api/salary/view/" + id).then(function (_ref) {
         var data = _ref.data;
         return _this2.salaries = data;
       })["catch"](function (error) {
@@ -10077,7 +10740,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n#em_photo{\n  height: 40px;\n  width: 40px;\n}\n", ""]);
+exports.push([module.i, "\n#em_photo {\n    height: 40px;\n    width: 40px;\n}\n", ""]);
 
 // exports
 
@@ -10096,7 +10759,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n#em_photo{\n  height: 40px;\n  width: 40px;\n}\n", ""]);
+exports.push([module.i, "\n#em_photo {\n    height: 40px;\n    width: 40px;\n}\n", ""]);
 
 // exports
 
@@ -10115,7 +10778,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n#em_photo{\n  height: 40px;\n  width: 40px;\n}\n", ""]);
+exports.push([module.i, "\n#em_photo {\n    height: 40px;\n    width: 40px;\n}\n", ""]);
 
 // exports
 
@@ -10134,7 +10797,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n#em_photo{\n  height: 40px;\n  width: 40px;\n}\n", ""]);
+exports.push([module.i, "\n#em_photo {\n    height: 40px;\n    width: 40px;\n}\n", ""]);
 
 // exports
 
@@ -10153,7 +10816,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n#em_photo{\n  height: 40px;\n  width: 40px;\n}\n", ""]);
+exports.push([module.i, "\n#em_photo {\n    height: 40px;\n    width: 40px;\n}\n", ""]);
 
 // exports
 
@@ -10172,7 +10835,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n#em_photo{\n  height: 40px;\n  width: 40px;\n}\n", ""]);
+exports.push([module.i, "\n#em_photo {\n    height: 40px;\n    width: 40px;\n}\n", ""]);
 
 // exports
 
@@ -10191,7 +10854,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n#em_photo{\n  height: 40px;\n  width: 40px;\n}\n", ""]);
+exports.push([module.i, "\n#em_photo {\n    height: 40px;\n    width: 40px;\n}\n", ""]);
 
 // exports
 
@@ -49084,7 +49747,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "page col-115" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-xl-12 col-lg-12 col-md-12" }, [
         _c("div", { staticClass: "card shadow-sm my-2" }, [
@@ -49115,7 +49778,8 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.form.category_name,
-                                  expression: "form.category_name"
+                                  expression:
+                                    "\n                                                        form.category_name\n                                                    "
                                 }
                               ],
                               staticClass: "form-control",
@@ -49142,9 +49806,9 @@ var render = function() {
                             _vm.errors.category_name
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " +
+                                    "\n                                                    " +
                                       _vm._s(_vm.errors.category_name[0]) +
-                                      " "
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e()
@@ -49177,7 +49841,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "text-center" }, [
       _c("h1", { staticClass: "h4 text-gray-900 mb-4" }, [
-        _vm._v("Add Category")
+        _vm._v(
+          "\n                                        Add Category\n                                    "
+        )
       ])
     ])
   },
@@ -49189,7 +49855,11 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary btn-block", attrs: { type: "submit" } },
-        [_vm._v("Submit")]
+        [
+          _vm._v(
+            "\n                                            Submit\n                                        "
+          )
+        ]
       )
     ])
   }
@@ -49215,7 +49885,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "page col-115" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-xl-12 col-lg-12 col-md-12" }, [
         _c("div", { staticClass: "card shadow-sm my-2" }, [
@@ -49246,7 +49916,8 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.form.category_name,
-                                  expression: "form.category_name"
+                                  expression:
+                                    "\n                                                        form.category_name\n                                                    "
                                 }
                               ],
                               staticClass: "form-control",
@@ -49273,9 +49944,9 @@ var render = function() {
                             _vm.errors.category_name
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " +
+                                    "\n                                                    " +
                                       _vm._s(_vm.errors.category_name[0]) +
-                                      " "
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e()
@@ -49308,7 +49979,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "text-center" }, [
       _c("h1", { staticClass: "h4 text-gray-900 mb-4" }, [
-        _vm._v(" Category Update")
+        _vm._v(
+          "\n                                        Category Update\n                                    "
+        )
       ])
     ])
   },
@@ -49320,7 +49993,11 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary btn-block", attrs: { type: "submit" } },
-        [_vm._v("Update")]
+        [
+          _vm._v(
+            "\n                                            Update\n                                        "
+          )
+        ]
       )
     ])
   }
@@ -49346,7 +50023,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "page col-115" }, [
     _c("div", { staticClass: "row col-md-12" }, [
       _c(
         "div",
@@ -49358,7 +50035,7 @@ var render = function() {
               staticClass: "btn btn-primary float-left",
               attrs: { to: "/store-category" }
             },
-            [_vm._v("Add Category ")]
+            [_vm._v("Add Category\n            ")]
           )
         ],
         1
@@ -49408,9 +50085,7 @@ var render = function() {
                   "tbody",
                   _vm._l(_vm.filtersearch, function(category) {
                     return _c("tr", { key: category.id }, [
-                      _c("td", [
-                        _vm._v(" " + _vm._s(category.category_name) + " ")
-                      ]),
+                      _c("td", [_vm._v(_vm._s(category.category_name))]),
                       _vm._v(" "),
                       _c(
                         "td",
@@ -49476,7 +50151,9 @@ var staticRenderFns = [
       },
       [
         _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-          _vm._v("Category List")
+          _vm._v(
+            "\n                        Category List\n                    "
+          )
         ])
       ]
     )
@@ -49515,7 +50192,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "page col-115" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-xl-12 col-lg-12 col-md-12" }, [
         _c("div", { staticClass: "card shadow-sm my-2" }, [
@@ -49573,7 +50250,11 @@ var render = function() {
                             _vm._v(" "),
                             _vm.errors.name
                               ? _c("small", { staticClass: "text-danger" }, [
-                                  _vm._v(" " + _vm._s(_vm.errors.name[0]) + " ")
+                                  _vm._v(
+                                    "\n                                                    " +
+                                      _vm._s(_vm.errors.name[0]) +
+                                      "\n                                                "
+                                  )
                                 ])
                               : _vm._e()
                           ]),
@@ -49612,7 +50293,9 @@ var render = function() {
                             _vm.errors.email
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.email[0]) + " "
+                                    "\n                                                    " +
+                                      _vm._s(_vm.errors.email[0]) +
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e()
@@ -49656,7 +50339,9 @@ var render = function() {
                             _vm.errors.address
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.address[0]) + " "
+                                    "\n                                                    " +
+                                      _vm._s(_vm.errors.address[0]) +
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e()
@@ -49696,7 +50381,9 @@ var render = function() {
                             _vm.errors.sallery
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.sallery[0]) + " "
+                                    "\n                                                    " +
+                                      _vm._s(_vm.errors.sallery[0]) +
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e()
@@ -49713,7 +50400,8 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.form.joining_date,
-                                  expression: "form.joining_date"
+                                  expression:
+                                    "\n                                                        form.joining_date\n                                                    "
                                 }
                               ],
                               staticClass: "form-control",
@@ -49740,9 +50428,9 @@ var render = function() {
                             _vm.errors.joining_date
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " +
+                                    "\n                                                    " +
                                       _vm._s(_vm.errors.joining_date[0]) +
-                                      " "
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e()
@@ -49777,7 +50465,11 @@ var render = function() {
                             _vm._v(" "),
                             _vm.errors.nid
                               ? _c("small", { staticClass: "text-danger" }, [
-                                  _vm._v(" " + _vm._s(_vm.errors.nid[0]) + " ")
+                                  _vm._v(
+                                    "\n                                                    " +
+                                      _vm._s(_vm.errors.nid[0]) +
+                                      "\n                                                "
+                                  )
                                 ])
                               : _vm._e()
                           ])
@@ -49820,7 +50512,9 @@ var render = function() {
                             _vm.errors.phone
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.phone[0]) + " "
+                                    "\n                                                    " +
+                                      _vm._s(_vm.errors.phone[0]) +
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e()
@@ -49836,7 +50530,9 @@ var render = function() {
                             _vm.errors.photo
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.photo[0]) + " "
+                                    "\n                                                    " +
+                                      _vm._s(_vm.errors.photo[0]) +
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e(),
@@ -49853,6 +50549,7 @@ var render = function() {
                           _vm._v(" "),
                           _c("div", { staticClass: "col-md-1" }, [
                             _c("img", {
+                              staticClass: "rounded-circle",
                               staticStyle: { height: "40px", width: "40px" },
                               attrs: { src: _vm.form.photo }
                             })
@@ -49885,7 +50582,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "text-center" }, [
       _c("h1", { staticClass: "h4 text-gray-900 mb-4" }, [
-        _vm._v("Add Employee")
+        _vm._v(
+          "\n                                        Add Employee\n                                    "
+        )
       ])
     ])
   },
@@ -49897,7 +50596,11 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary btn-block", attrs: { type: "submit" } },
-        [_vm._v("Submit")]
+        [
+          _vm._v(
+            "\n                                            Submit\n                                        "
+          )
+        ]
       )
     ])
   }
@@ -49923,7 +50626,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "page col-115" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-xl-12 col-lg-12 col-md-12" }, [
         _c("div", { staticClass: "card shadow-sm my-2" }, [
@@ -49982,14 +50685,20 @@ var render = function() {
                                   }
                                 },
                                 "input",
-                                { value: _vm.form.name },
+                                {
+                                  value: _vm.form.name
+                                },
                                 false
                               )
                             ),
                             _vm._v(" "),
                             _vm.errors.name
                               ? _c("small", { staticClass: "text-danger" }, [
-                                  _vm._v(" " + _vm._s(_vm.errors.name[0]) + " ")
+                                  _vm._v(
+                                    "\n                                                    " +
+                                      _vm._s(_vm.errors.name[0]) +
+                                      "\n                                                "
+                                  )
                                 ])
                               : _vm._e()
                           ]),
@@ -50028,7 +50737,9 @@ var render = function() {
                             _vm.errors.email
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.email[0]) + " "
+                                    "\n                                                    " +
+                                      _vm._s(_vm.errors.email[0]) +
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e()
@@ -50072,7 +50783,9 @@ var render = function() {
                             _vm.errors.address
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.address[0]) + " "
+                                    "\n                                                    " +
+                                      _vm._s(_vm.errors.address[0]) +
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e()
@@ -50112,7 +50825,9 @@ var render = function() {
                             _vm.errors.sallery
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.sallery[0]) + " "
+                                    "\n                                                    " +
+                                      _vm._s(_vm.errors.sallery[0]) +
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e()
@@ -50129,7 +50844,8 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.form.joining_date,
-                                  expression: "form.joining_date"
+                                  expression:
+                                    "\n                                                        form.joining_date\n                                                    "
                                 }
                               ],
                               staticClass: "form-control",
@@ -50156,9 +50872,9 @@ var render = function() {
                             _vm.errors.joining_date
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " +
+                                    "\n                                                    " +
                                       _vm._s(_vm.errors.joining_date[0]) +
-                                      " "
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e()
@@ -50193,7 +50909,11 @@ var render = function() {
                             _vm._v(" "),
                             _vm.errors.nid
                               ? _c("small", { staticClass: "text-danger" }, [
-                                  _vm._v(" " + _vm._s(_vm.errors.nid[0]) + " ")
+                                  _vm._v(
+                                    "\n                                                    " +
+                                      _vm._s(_vm.errors.nid[0]) +
+                                      "\n                                                "
+                                  )
                                 ])
                               : _vm._e()
                           ])
@@ -50236,7 +50956,9 @@ var render = function() {
                             _vm.errors.phone
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.phone[0]) + " "
+                                    "\n                                                    " +
+                                      _vm._s(_vm.errors.phone[0]) +
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e()
@@ -50252,7 +50974,9 @@ var render = function() {
                             _vm.errors.photo
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.photo[0]) + " "
+                                    "\n                                                    " +
+                                      _vm._s(_vm.errors.photo[0]) +
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e(),
@@ -50305,7 +51029,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "text-center" }, [
       _c("h1", { staticClass: "h4 text-gray-900 mb-4" }, [
-        _vm._v(" Employee Update")
+        _vm._v(
+          "\n                                        Employee Update\n                                    "
+        )
       ])
     ])
   },
@@ -50317,7 +51043,11 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary btn-block", attrs: { type: "submit" } },
-        [_vm._v("Update")]
+        [
+          _vm._v(
+            "\n                                            Update\n                                        "
+          )
+        ]
       )
     ])
   }
@@ -50343,8 +51073,8 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "row col-md-12" }, [
+  return _c("div", { staticClass: "page col-115" }, [
+    _c("div", { staticClass: "row col-12" }, [
       _c(
         "div",
         { staticClass: "col-md-6" },
@@ -50355,7 +51085,7 @@ var render = function() {
               staticClass: "btn btn-primary float-left",
               attrs: { to: "/employee/create" }
             },
-            [_vm._v("Add Employee ")]
+            [_vm._v("Add Employee\n            ")]
           )
         ],
         1
@@ -50405,7 +51135,7 @@ var render = function() {
                   "tbody",
                   _vm._l(_vm.filterSearch, function(employee) {
                     return _c("tr", { key: employee.id }, [
-                      _c("td", [_vm._v(" " + _vm._s(employee.name) + " ")]),
+                      _c("td", [_vm._v(_vm._s(employee.name))]),
                       _vm._v(" "),
                       _c("td", [
                         _c("img", {
@@ -50415,15 +51145,27 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("td", { staticClass: "text-center" }, [
-                        _vm._v(_vm._s(employee.phone))
+                        _vm._v(
+                          "\n                                    " +
+                            _vm._s(employee.phone) +
+                            "\n                                "
+                        )
                       ]),
                       _vm._v(" "),
                       _c("td", { staticClass: "text-center" }, [
-                        _vm._v(_vm._s(employee.sallery))
+                        _vm._v(
+                          "\n                                    " +
+                            _vm._s(employee.sallery) +
+                            "\n                                "
+                        )
                       ]),
                       _vm._v(" "),
                       _c("td", { staticClass: "text-center" }, [
-                        _vm._v(_vm._s(employee.joining_date))
+                        _vm._v(
+                          "\n                                    " +
+                            _vm._s(employee.joining_date) +
+                            "\n                                "
+                        )
                       ]),
                       _vm._v(" "),
                       _c(
@@ -50491,7 +51233,9 @@ var staticRenderFns = [
       },
       [
         _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-          _vm._v("Employees List")
+          _vm._v(
+            "\n                        Employees List\n                    "
+          )
         ])
       ]
     )
@@ -50538,7 +51282,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "page col-115" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-xl-12 col-lg-12 col-md-12" }, [
         _c("div", { staticClass: "card shadow-sm my-2" }, [
@@ -50597,7 +51341,9 @@ var render = function() {
                             _vm.errors.details
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.details[0]) + " "
+                                    "\n                                                    " +
+                                      _vm._s(_vm.errors.details[0]) +
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e()
@@ -50641,7 +51387,9 @@ var render = function() {
                             _vm.errors.amount
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.amount[0]) + " "
+                                    "\n                                                    " +
+                                      _vm._s(_vm.errors.amount[0]) +
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e()
@@ -50674,7 +51422,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "text-center" }, [
       _c("h1", { staticClass: "h4 text-gray-900 mb-4" }, [
-        _vm._v("Add Expense")
+        _vm._v(
+          "\n                                        Add Expense\n                                    "
+        )
       ])
     ])
   },
@@ -50702,7 +51452,11 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary btn-block", attrs: { type: "submit" } },
-        [_vm._v("Submit")]
+        [
+          _vm._v(
+            "\n                                            Submit\n                                        "
+          )
+        ]
       )
     ])
   }
@@ -50728,7 +51482,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "page col-115" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-xl-12 col-lg-12 col-md-12" }, [
         _c("div", { staticClass: "card shadow-sm my-2" }, [
@@ -50787,7 +51541,9 @@ var render = function() {
                             _vm.errors.details
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.details[0]) + " "
+                                    "\n                                                    " +
+                                      _vm._s(_vm.errors.details[0]) +
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e()
@@ -50831,7 +51587,9 @@ var render = function() {
                             _vm.errors.amount
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.amount[0]) + " "
+                                    "\n                                                    " +
+                                      _vm._s(_vm.errors.amount[0]) +
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e()
@@ -50864,7 +51622,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "text-center" }, [
       _c("h1", { staticClass: "h4 text-gray-900 mb-4" }, [
-        _vm._v(" Expense Update")
+        _vm._v(
+          "\n                                        Expense Update\n                                    "
+        )
       ])
     ])
   },
@@ -50892,7 +51652,11 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary btn-block", attrs: { type: "submit" } },
-        [_vm._v("Update")]
+        [
+          _vm._v(
+            "\n                                            Update\n                                        "
+          )
+        ]
       )
     ])
   }
@@ -50918,7 +51682,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "page col-115" }, [
     _c("div", { staticClass: "row col-md-12" }, [
       _c(
         "div",
@@ -50930,7 +51694,7 @@ var render = function() {
               staticClass: "btn btn-primary float-left",
               attrs: { to: "/store-expense" }
             },
-            [_vm._v("Add Expense ")]
+            [_vm._v("Add Expense\n            ")]
           )
         ],
         1
@@ -50980,13 +51744,11 @@ var render = function() {
                   "tbody",
                   _vm._l(_vm.filtersearch, function(expense) {
                     return _c("tr", { key: expense.id }, [
-                      _c("td", [_vm._v(" " + _vm._s(expense.details) + " ")]),
+                      _c("td", [_vm._v(_vm._s(expense.details))]),
                       _vm._v(" "),
-                      _c("td", [_vm._v(" " + _vm._s(expense.amount) + " ")]),
+                      _c("td", [_vm._v(_vm._s(expense.amount))]),
                       _vm._v(" "),
-                      _c("td", [
-                        _vm._v(" " + _vm._s(expense.expense_date) + " ")
-                      ]),
+                      _c("td", [_vm._v(_vm._s(expense.expense_date))]),
                       _vm._v(" "),
                       _c(
                         "td",
@@ -51052,7 +51814,7 @@ var staticRenderFns = [
       },
       [
         _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-          _vm._v("Expense List")
+          _vm._v("\n                        Expense List\n                    ")
         ])
       ]
     )
@@ -51065,7 +51827,7 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Details")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Amount ")]),
+        _c("th", [_vm._v("Amount")]),
         _vm._v(" "),
         _c("th", [_vm._v("Date")]),
         _vm._v(" "),
@@ -51102,7 +51864,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
+    return _c("div", { staticClass: "page col-115" }, [
       _c(
         "div",
         {
@@ -51125,7 +51887,7 @@ var staticRenderFns = [
                 staticClass: "breadcrumb-item active",
                 attrs: { "aria-current": "page" }
               },
-              [_vm._v("Dashboard")]
+              [_vm._v("\n                Dashboard\n            ")]
             )
           ])
         ]
@@ -51143,7 +51905,11 @@ var staticRenderFns = [
                       staticClass:
                         "text-xs font-weight-bold text-uppercase mb-1"
                     },
-                    [_vm._v("Today Sell Amount")]
+                    [
+                      _vm._v(
+                        "\n                                Today Sell Amount\n                            "
+                      )
+                    ]
                   ),
                   _vm._v(" "),
                   _c("div", {
@@ -51153,7 +51919,7 @@ var staticRenderFns = [
                   _c("div", { staticClass: "mt-2 mb-0 text-muted text-xs" }, [
                     _c("span", { staticClass: "text-success mr-2" }, [
                       _c("i", { staticClass: "fa fa-arrow-up" }),
-                      _vm._v(" 3.48%")
+                      _vm._v("\n                                    3.48%")
                     ]),
                     _vm._v(" "),
                     _c("span", [_vm._v("Since last month")])
@@ -51179,7 +51945,11 @@ var staticRenderFns = [
                       staticClass:
                         "text-xs font-weight-bold text-uppercase mb-1"
                     },
-                    [_vm._v("Today Income")]
+                    [
+                      _vm._v(
+                        "\n                                Today Income\n                            "
+                      )
+                    ]
                   ),
                   _vm._v(" "),
                   _c("div", {
@@ -51189,7 +51959,7 @@ var staticRenderFns = [
                   _c("div", { staticClass: "mt-2 mb-0 text-muted text-xs" }, [
                     _c("span", { staticClass: "text-success mr-2" }, [
                       _c("i", { staticClass: "fas fa-arrow-up" }),
-                      _vm._v(" 12%")
+                      _vm._v("\n                                    12%")
                     ]),
                     _vm._v(" "),
                     _c("span", [_vm._v("Since last years")])
@@ -51217,7 +51987,11 @@ var staticRenderFns = [
                       staticClass:
                         "text-xs font-weight-bold text-uppercase mb-1"
                     },
-                    [_vm._v("Today Due")]
+                    [
+                      _vm._v(
+                        "\n                                Today Due\n                            "
+                      )
+                    ]
                   ),
                   _vm._v(" "),
                   _c("div", {
@@ -51227,7 +52001,7 @@ var staticRenderFns = [
                   _c("div", { staticClass: "mt-2 mb-0 text-muted text-xs" }, [
                     _c("span", { staticClass: "text-success mr-2" }, [
                       _c("i", { staticClass: "fas fa-arrow-up" }),
-                      _vm._v(" 20.4%")
+                      _vm._v("\n                                    20.4%")
                     ]),
                     _vm._v(" "),
                     _c("span", [_vm._v("Since last month")])
@@ -51253,7 +52027,11 @@ var staticRenderFns = [
                       staticClass:
                         "text-xs font-weight-bold text-uppercase mb-1"
                     },
-                    [_vm._v("Today Expense")]
+                    [
+                      _vm._v(
+                        "\n                                Today Expense\n                            "
+                      )
+                    ]
                   ),
                   _vm._v(" "),
                   _c("div", {
@@ -51263,7 +52041,7 @@ var staticRenderFns = [
                   _c("div", { staticClass: "mt-2 mb-0 text-muted text-xs" }, [
                     _c("span", { staticClass: "text-danger mr-2" }, [
                       _c("i", { staticClass: "fas fa-arrow-down" }),
-                      _vm._v(" 1.10%")
+                      _vm._v("\n                                    1.10%")
                     ]),
                     _vm._v(" "),
                     _c("span", [_vm._v("Since yesterday")])
@@ -51302,7 +52080,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "page col-115" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-xl-12 col-lg-12 col-md-12" }, [
         _c("div", { staticClass: "card shadow-sm my-2" }, [
@@ -51872,7 +52650,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "page col-115" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-xl-12 col-lg-12 col-md-12" }, [
         _c("div", { staticClass: "card shadow-sm my-2" }, [
@@ -51910,7 +52688,8 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.form.product_name,
-                                  expression: "form.product_name"
+                                  expression:
+                                    "\n                                                        form.product_name\n                                                    "
                                 }
                               ],
                               staticClass: "form-control",
@@ -51937,9 +52716,9 @@ var render = function() {
                             _vm.errors.product_name
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " +
+                                    "\n                                                    " +
                                       _vm._s(_vm.errors.product_name[0]) +
-                                      " "
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e()
@@ -51958,7 +52737,8 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.form.product_code,
-                                  expression: "form.product_code"
+                                  expression:
+                                    "\n                                                        form.product_code\n                                                    "
                                 }
                               ],
                               staticClass: "form-control",
@@ -51985,9 +52765,9 @@ var render = function() {
                             _vm.errors.product_code
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " +
+                                    "\n                                                    " +
                                       _vm._s(_vm.errors.product_code[0]) +
-                                      " "
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e()
@@ -52012,7 +52792,8 @@ var render = function() {
                                     name: "model",
                                     rawName: "v-model",
                                     value: _vm.form.category_id,
-                                    expression: "form.category_id"
+                                    expression:
+                                      "\n                                                        form.category_id\n                                                    "
                                   }
                                 ],
                                 staticClass: "form-control",
@@ -52064,7 +52845,8 @@ var render = function() {
                                     name: "model",
                                     rawName: "v-model",
                                     value: _vm.form.supplier_id,
-                                    expression: "form.supplier_id"
+                                    expression:
+                                      "\n                                                        form.supplier_id\n                                                    "
                                   }
                                 ],
                                 staticClass: "form-control",
@@ -52143,7 +52925,11 @@ var render = function() {
                             _vm._v(" "),
                             _vm.errors.root
                               ? _c("small", { staticClass: "text-danger" }, [
-                                  _vm._v(" " + _vm._s(_vm.errors.root[0]) + " ")
+                                  _vm._v(
+                                    "\n                                                    " +
+                                      _vm._s(_vm.errors.root[0]) +
+                                      "\n                                                "
+                                  )
                                 ])
                               : _vm._e()
                           ]),
@@ -52161,7 +52947,8 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.form.buying_price,
-                                  expression: "form.buying_price"
+                                  expression:
+                                    "\n                                                        form.buying_price\n                                                    "
                                 }
                               ],
                               staticClass: "form-control",
@@ -52187,9 +52974,9 @@ var render = function() {
                             _vm.errors.buying_price
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " +
+                                    "\n                                                    " +
                                       _vm._s(_vm.errors.buying_price[0]) +
-                                      " "
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e()
@@ -52208,7 +52995,8 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.form.selling_price,
-                                  expression: "form.selling_price"
+                                  expression:
+                                    "\n                                                        form.selling_price\n                                                    "
                                 }
                               ],
                               staticClass: "form-control",
@@ -52234,9 +53022,9 @@ var render = function() {
                             _vm.errors.selling_price
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " +
+                                    "\n                                                    " +
                                       _vm._s(_vm.errors.selling_price[0]) +
-                                      " "
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e()
@@ -52259,7 +53047,8 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.form.buying_date,
-                                  expression: "form.buying_date"
+                                  expression:
+                                    "\n                                                        form.buying_date\n                                                    "
                                 }
                               ],
                               staticClass: "form-control",
@@ -52285,9 +53074,9 @@ var render = function() {
                             _vm.errors.buying_date
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " +
+                                    "\n                                                    " +
                                       _vm._s(_vm.errors.buying_date[0]) +
-                                      " "
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e()
@@ -52306,7 +53095,8 @@ var render = function() {
                                   name: "model",
                                   rawName: "v-model",
                                   value: _vm.form.product_quantity,
-                                  expression: "form.product_quantity"
+                                  expression:
+                                    "\n                                                        form.product_quantity\n                                                    "
                                 }
                               ],
                               staticClass: "form-control",
@@ -52333,9 +53123,9 @@ var render = function() {
                             _vm.errors.product_quantity
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " +
+                                    "\n                                                    " +
                                       _vm._s(_vm.errors.product_quantity[0]) +
-                                      " "
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e()
@@ -52355,7 +53145,9 @@ var render = function() {
                             _vm.errors.image
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.image[0]) + " "
+                                    "\n                                                    " +
+                                      _vm._s(_vm.errors.image[0]) +
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e(),
@@ -52404,7 +53196,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "text-center" }, [
       _c("h1", { staticClass: "h4 text-gray-900 mb-4" }, [
-        _vm._v(" Product Update")
+        _vm._v(
+          "\n                                        Product Update\n                                    "
+        )
       ])
     ])
   },
@@ -52416,7 +53210,11 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary btn-block", attrs: { type: "submit" } },
-        [_vm._v("Update")]
+        [
+          _vm._v(
+            "\n                                            Update\n                                        "
+          )
+        ]
       )
     ])
   }
@@ -52442,7 +53240,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "page col-115" }, [
     _c("div", { staticClass: "row col-md-12" }, [
       _c(
         "div",
@@ -52454,7 +53252,7 @@ var render = function() {
               staticClass: "btn btn-primary float-left",
               attrs: { to: "/store-product" }
             },
-            [_vm._v("Add Product ")]
+            [_vm._v("Add Product\n            ")]
           )
         ],
         1
@@ -52504,13 +53302,9 @@ var render = function() {
                   "tbody",
                   _vm._l(_vm.filtersearch, function(product) {
                     return _c("tr", { key: product.id }, [
-                      _c("td", [
-                        _vm._v(" " + _vm._s(product.product_name) + " ")
-                      ]),
+                      _c("td", [_vm._v(_vm._s(product.product_name))]),
                       _vm._v(" "),
-                      _c("td", [
-                        _vm._v(" " + _vm._s(product.product_code) + " ")
-                      ]),
+                      _c("td", [_vm._v(_vm._s(product.product_code))]),
                       _vm._v(" "),
                       _c("td", [
                         _c("img", {
@@ -52591,7 +53385,7 @@ var staticRenderFns = [
       },
       [
         _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-          _vm._v("Product List")
+          _vm._v("\n                        Product List\n                    ")
         ])
       ]
     )
@@ -52642,7 +53436,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "page col-115" }, [
     _c("div", { staticClass: "row col-md-12" }, [
       _c(
         "div",
@@ -52654,7 +53448,7 @@ var render = function() {
               staticClass: "btn btn-primary float-left",
               attrs: { to: "/employee/create" }
             },
-            [_vm._v("Add Employee ")]
+            [_vm._v("Add Employee\n            ")]
           )
         ],
         1
@@ -52704,7 +53498,7 @@ var render = function() {
                   "tbody",
                   _vm._l(_vm.filtersearch, function(employee) {
                     return _c("tr", { key: employee.id }, [
-                      _c("td", [_vm._v(" " + _vm._s(employee.name) + " ")]),
+                      _c("td", [_vm._v(_vm._s(employee.name))]),
                       _vm._v(" "),
                       _c("td", [
                         _c("img", {
@@ -52766,7 +53560,9 @@ var staticRenderFns = [
       },
       [
         _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-          _vm._v("Employee List")
+          _vm._v(
+            "\n                        Employee List\n                    "
+          )
         ])
       ]
     )
@@ -52813,7 +53609,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "page col-115" }, [
     _c(
       "div",
       { staticClass: "row" },
@@ -52821,7 +53617,7 @@ var render = function() {
         _c(
           "router-link",
           { staticClass: "btn btn-primary", attrs: { to: "/employees" } },
-          [_vm._v("All Employee ")]
+          [_vm._v("All Employee\n        ")]
         )
       ],
       1
@@ -52836,7 +53632,11 @@ var render = function() {
                 _c("div", { staticClass: "login-form" }, [
                   _c("div", { staticClass: "text-center" }, [
                     _c("h1", { staticClass: "h4 text-gray-900 mb-4" }, [
-                      _vm._v("Pay " + _vm._s(_vm.form.name) + "'s Salary ")
+                      _vm._v(
+                        "\n                                        Pay " +
+                          _vm._s(_vm.form.name) +
+                          "'s Salary\n                                    "
+                      )
                     ])
                   ]),
                   _vm._v(" "),
@@ -52867,7 +53667,8 @@ var render = function() {
                                     name: "model",
                                     rawName: "v-model",
                                     value: _vm.form.salary_month,
-                                    expression: "form.salary_month"
+                                    expression:
+                                      "\n                                                        form.salary_month\n                                                    "
                                   }
                                 ],
                                 staticClass: "form-control",
@@ -52895,53 +53696,79 @@ var render = function() {
                               },
                               [
                                 _c("option", { attrs: { value: "January" } }, [
-                                  _vm._v(" January ")
+                                  _vm._v(
+                                    "\n                                                        January\n                                                    "
+                                  )
                                 ]),
                                 _vm._v(" "),
                                 _c("option", { attrs: { value: "February" } }, [
-                                  _vm._v(" February ")
+                                  _vm._v(
+                                    "\n                                                        February\n                                                    "
+                                  )
                                 ]),
                                 _vm._v(" "),
                                 _c("option", { attrs: { value: "March" } }, [
-                                  _vm._v(" March ")
+                                  _vm._v(
+                                    "\n                                                        March\n                                                    "
+                                  )
                                 ]),
                                 _vm._v(" "),
                                 _c("option", { attrs: { value: "April" } }, [
-                                  _vm._v(" April ")
+                                  _vm._v(
+                                    "\n                                                        April\n                                                    "
+                                  )
                                 ]),
                                 _vm._v(" "),
                                 _c("option", { attrs: { value: "May" } }, [
-                                  _vm._v(" May ")
+                                  _vm._v(
+                                    "\n                                                        May\n                                                    "
+                                  )
                                 ]),
                                 _vm._v(" "),
                                 _c("option", { attrs: { value: "Jun" } }, [
-                                  _vm._v(" Jun ")
+                                  _vm._v(
+                                    "\n                                                        Jun\n                                                    "
+                                  )
                                 ]),
                                 _vm._v(" "),
                                 _c("option", { attrs: { value: "July" } }, [
-                                  _vm._v(" July ")
+                                  _vm._v(
+                                    "\n                                                        July\n                                                    "
+                                  )
                                 ]),
                                 _vm._v(" "),
                                 _c("option", { attrs: { value: "August" } }, [
-                                  _vm._v(" August ")
+                                  _vm._v(
+                                    "\n                                                        August\n                                                    "
+                                  )
                                 ]),
                                 _vm._v(" "),
                                 _c(
                                   "option",
                                   { attrs: { value: "September" } },
-                                  [_vm._v(" September ")]
+                                  [
+                                    _vm._v(
+                                      "\n                                                        September\n                                                    "
+                                    )
+                                  ]
                                 ),
                                 _vm._v(" "),
                                 _c("option", { attrs: { value: "October" } }, [
-                                  _vm._v(" October ")
+                                  _vm._v(
+                                    "\n                                                        October\n                                                    "
+                                  )
                                 ]),
                                 _vm._v(" "),
                                 _c("option", { attrs: { value: "November" } }, [
-                                  _vm._v(" November ")
+                                  _vm._v(
+                                    "\n                                                        November\n                                                    "
+                                  )
                                 ]),
                                 _vm._v(" "),
                                 _c("option", { attrs: { value: "December" } }, [
-                                  _vm._v(" December ")
+                                  _vm._v(
+                                    "\n                                                        December\n                                                    "
+                                  )
                                 ])
                               ]
                             ),
@@ -52949,9 +53776,9 @@ var render = function() {
                             _vm.errors.salary_month
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " +
+                                    "\n                                                    " +
                                       _vm._s(_vm.errors.salary_month[0]) +
-                                      " "
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e()
@@ -52993,7 +53820,9 @@ var render = function() {
                             _vm.errors.sallery
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.sallery[0]) + " "
+                                    "\n                                                    " +
+                                      _vm._s(_vm.errors.sallery[0]) +
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e()
@@ -53044,7 +53873,11 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary btn-block", attrs: { type: "submit" } },
-        [_vm._v("PayNow")]
+        [
+          _vm._v(
+            "\n                                            PayNow\n                                        "
+          )
+        ]
       )
     ])
   }
@@ -53070,7 +53903,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "page col-115" }, [
     _c(
       "div",
       { staticClass: "row" },
@@ -53078,7 +53911,7 @@ var render = function() {
         _c(
           "router-link",
           { staticClass: "btn btn-primary", attrs: { to: "/salary" } },
-          [_vm._v("Go Back ")]
+          [_vm._v("Go Back\n        ")]
         )
       ],
       1
@@ -53093,7 +53926,11 @@ var render = function() {
                 _c("div", { staticClass: "login-form" }, [
                   _c("div", { staticClass: "text-center" }, [
                     _c("h1", { staticClass: "h4 text-gray-900 mb-4" }, [
-                      _vm._v("Update " + _vm._s(_vm.form.name) + "'s Salary ")
+                      _vm._v(
+                        "\n                                        Update " +
+                          _vm._s(_vm.form.name) +
+                          "'s Salary\n                                    "
+                      )
                     ])
                   ]),
                   _vm._v(" "),
@@ -53122,7 +53959,8 @@ var render = function() {
                                     name: "model",
                                     rawName: "v-model",
                                     value: _vm.form.salary_month,
-                                    expression: "form.salary_month"
+                                    expression:
+                                      "\n                                                        form.salary_month\n                                                    "
                                   }
                                 ],
                                 staticClass: "form-control",
@@ -53150,53 +53988,79 @@ var render = function() {
                               },
                               [
                                 _c("option", { attrs: { value: "January" } }, [
-                                  _vm._v(" January ")
+                                  _vm._v(
+                                    "\n                                                        January\n                                                    "
+                                  )
                                 ]),
                                 _vm._v(" "),
                                 _c("option", { attrs: { value: "February" } }, [
-                                  _vm._v(" February ")
+                                  _vm._v(
+                                    "\n                                                        February\n                                                    "
+                                  )
                                 ]),
                                 _vm._v(" "),
                                 _c("option", { attrs: { value: "March" } }, [
-                                  _vm._v(" March ")
+                                  _vm._v(
+                                    "\n                                                        March\n                                                    "
+                                  )
                                 ]),
                                 _vm._v(" "),
                                 _c("option", { attrs: { value: "April" } }, [
-                                  _vm._v(" April ")
+                                  _vm._v(
+                                    "\n                                                        April\n                                                    "
+                                  )
                                 ]),
                                 _vm._v(" "),
                                 _c("option", { attrs: { value: "May" } }, [
-                                  _vm._v(" May ")
+                                  _vm._v(
+                                    "\n                                                        May\n                                                    "
+                                  )
                                 ]),
                                 _vm._v(" "),
                                 _c("option", { attrs: { value: "Jun" } }, [
-                                  _vm._v(" Jun ")
+                                  _vm._v(
+                                    "\n                                                        Jun\n                                                    "
+                                  )
                                 ]),
                                 _vm._v(" "),
                                 _c("option", { attrs: { value: "July" } }, [
-                                  _vm._v(" July ")
+                                  _vm._v(
+                                    "\n                                                        July\n                                                    "
+                                  )
                                 ]),
                                 _vm._v(" "),
                                 _c("option", { attrs: { value: "August" } }, [
-                                  _vm._v(" August ")
+                                  _vm._v(
+                                    "\n                                                        August\n                                                    "
+                                  )
                                 ]),
                                 _vm._v(" "),
                                 _c(
                                   "option",
                                   { attrs: { value: "September" } },
-                                  [_vm._v(" September ")]
+                                  [
+                                    _vm._v(
+                                      "\n                                                        September\n                                                    "
+                                    )
+                                  ]
                                 ),
                                 _vm._v(" "),
                                 _c("option", { attrs: { value: "October" } }, [
-                                  _vm._v(" October ")
+                                  _vm._v(
+                                    "\n                                                        October\n                                                    "
+                                  )
                                 ]),
                                 _vm._v(" "),
                                 _c("option", { attrs: { value: "November" } }, [
-                                  _vm._v(" November ")
+                                  _vm._v(
+                                    "\n                                                        November\n                                                    "
+                                  )
                                 ]),
                                 _vm._v(" "),
                                 _c("option", { attrs: { value: "December" } }, [
-                                  _vm._v(" December ")
+                                  _vm._v(
+                                    "\n                                                        December\n                                                    "
+                                  )
                                 ])
                               ]
                             ),
@@ -53204,9 +54068,9 @@ var render = function() {
                             _vm.errors.salary_month
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " +
+                                    "\n                                                    " +
                                       _vm._s(_vm.errors.salary_month[0]) +
-                                      " "
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e()
@@ -53273,7 +54137,9 @@ var render = function() {
                             _vm.errors.amount
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.amount[0]) + " "
+                                    "\n                                                    " +
+                                      _vm._s(_vm.errors.amount[0]) +
+                                      "\n                                                "
                                   )
                                 ])
                               : _vm._e()
@@ -53324,7 +54190,11 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary btn-block", attrs: { type: "submit" } },
-        [_vm._v("Update")]
+        [
+          _vm._v(
+            "\n                                            Update\n                                        "
+          )
+        ]
       )
     ])
   }
@@ -53350,7 +54220,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "page col-115" }, [
     _c("div", { staticClass: "row col-md-12" }, [
       _c(
         "div",
@@ -53362,7 +54232,7 @@ var render = function() {
               staticClass: "btn btn-primary float-left",
               attrs: { to: "/given-salary" }
             },
-            [_vm._v("Pay an employee ")]
+            [_vm._v("Pay an employee\n            ")]
           )
         ],
         1
@@ -53415,9 +54285,7 @@ var render = function() {
                     "tbody",
                     _vm._l(_vm.filtersearch.slice(0, 4), function(salary) {
                       return _c("tr", { key: salary.id }, [
-                        _c("td", [
-                          _vm._v(" " + _vm._s(salary.salary_month) + " ")
-                        ]),
+                        _c("td", [_vm._v(_vm._s(salary.salary_month))]),
                         _vm._v(" "),
                         _c(
                           "td",
@@ -53429,7 +54297,9 @@ var render = function() {
                                 attrs: {
                                   to: {
                                     name: "view-salary",
-                                    params: { id: salary.salary_month }
+                                    params: {
+                                      id: salary.salary_month
+                                    }
                                   }
                                 }
                               },
@@ -53470,9 +54340,7 @@ var render = function() {
                         "tbody",
                         _vm._l(_vm.filtersearch.slice(4, 8), function(salary) {
                           return _c("tr", { key: salary.id }, [
-                            _c("td", [
-                              _vm._v(" " + _vm._s(salary.salary_month) + " ")
-                            ]),
+                            _c("td", [_vm._v(_vm._s(salary.salary_month))]),
                             _vm._v(" "),
                             _c(
                               "td",
@@ -53484,7 +54352,9 @@ var render = function() {
                                     attrs: {
                                       to: {
                                         name: "view-salary",
-                                        params: { id: salary.salary_month }
+                                        params: {
+                                          id: salary.salary_month
+                                        }
                                       }
                                     }
                                   },
@@ -53526,9 +54396,7 @@ var render = function() {
                         "tbody",
                         _vm._l(_vm.filtersearch.slice(8, 12), function(salary) {
                           return _c("tr", { key: salary.id }, [
-                            _c("td", [
-                              _vm._v(" " + _vm._s(salary.salary_month) + " ")
-                            ]),
+                            _c("td", [_vm._v(_vm._s(salary.salary_month))]),
                             _vm._v(" "),
                             _c(
                               "td",
@@ -53540,7 +54408,9 @@ var render = function() {
                                     attrs: {
                                       to: {
                                         name: "view-salary",
-                                        params: { id: salary.salary_month }
+                                        params: {
+                                          id: salary.salary_month
+                                        }
                                       }
                                     }
                                   },
@@ -53578,7 +54448,9 @@ var staticRenderFns = [
       },
       [
         _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-          _vm._v("All Salary Details")
+          _vm._v(
+            "\n                        All Salary Details\n                    "
+          )
         ])
       ]
     )
@@ -53675,7 +54547,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "page col-115" }, [
     _c(
       "div",
       { staticClass: "row" },
@@ -53732,7 +54604,7 @@ var render = function() {
                   "tbody",
                   _vm._l(_vm.filtersearch, function(salary) {
                     return _c("tr", { key: salary.id }, [
-                      _c("td", [_vm._v(" " + _vm._s(salary.name) + " ")]),
+                      _c("td", [_vm._v(_vm._s(salary.name))]),
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(salary.salary_month))]),
                       _vm._v(" "),
@@ -53786,7 +54658,9 @@ var staticRenderFns = [
       },
       [
         _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-          _vm._v("Employee Salary Details")
+          _vm._v(
+            "\n                        Employee Salary Details\n                    "
+          )
         ])
       ]
     )
@@ -53831,7 +54705,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "page col-115" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-xl-12 col-lg-12 col-md-12" }, [
         _c("div", { staticClass: "card shadow-sm my-2" }, [
@@ -54163,7 +55037,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "page col-115" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-xl-12 col-lg-12 col-md-12" }, [
         _c("div", { staticClass: "card shadow-sm my-2" }, [
@@ -54495,7 +55369,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "page col-115" }, [
     _c("div", { staticClass: "row col-md-12" }, [
       _c(
         "div",

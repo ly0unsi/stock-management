@@ -1,158 +1,192 @@
-
-
 <template>
-
-  <div>
-
- <div class="row">
-  <router-link to="/employees" class="btn btn-primary">All Employee </router-link>
-
- </div>
-
-
-
-    <div class="row justify-content-center">
-      <div class="col-xl-12 col-lg-12 col-md-12">
-        <div class="card shadow-sm my-5">
-          <div class="card-body p-0">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="login-form">
-                  <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Pay {{form.name}}'s Salary </h1>
-                  </div>
-
-      <form class="user" @submit.prevent="SalaryPaid">
-
-        <div class="form-group">
-
-
+    <div class="page col-115">
+        <div class="row">
+            <router-link to="/employees" class="btn btn-primary"
+                >All Employee
+            </router-link>
         </div>
 
+        <div class="row justify-content-center">
+            <div class="col-xl-12 col-lg-12 col-md-12">
+                <div class="card shadow-sm my-5">
+                    <div class="card-body p-0">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="login-form">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">
+                                            Pay {{ form.name }}'s Salary
+                                        </h1>
+                                    </div>
 
-         <div class="form-group">
+                                    <form
+                                        class="user"
+                                        @submit.prevent="SalaryPaid"
+                                    >
+                                        <div class="form-group"></div>
 
-          <div class="form-row">
-            <div class="col-md-6">
-      <label for="exampleFormControlSelect1"><b>Months</b></label>
+                                        <div class="form-group">
+                                            <div class="form-row">
+                                                <div class="col-md-6">
+                                                    <label
+                                                        for="exampleFormControlSelect1"
+                                                        ><b>Months</b></label
+                                                    >
 
-  <select class="form-control" id="exampleFormControlSelect1" v-model="form.salary_month">
-     <option value="January"> January </option>
-     <option value="February"> February </option>
-     <option value="March"> March </option>
-     <option value="April"> April </option>
-     <option value="May"> May </option>
-     <option value="Jun"> Jun </option>
-     <option value="July"> July </option>
-     <option value="August"> August </option>
-     <option value="September"> September </option>
-     <option value="October"> October </option>
-     <option value="November"> November </option>
-     <option value="December"> December </option>
+                                                    <select
+                                                        class="form-control"
+                                                        id="exampleFormControlSelect1"
+                                                        v-model="
+                                                            form.salary_month
+                                                        "
+                                                    >
+                                                        <option value="January">
+                                                            January
+                                                        </option>
+                                                        <option
+                                                            value="February"
+                                                        >
+                                                            February
+                                                        </option>
+                                                        <option value="March">
+                                                            March
+                                                        </option>
+                                                        <option value="April">
+                                                            April
+                                                        </option>
+                                                        <option value="May">
+                                                            May
+                                                        </option>
+                                                        <option value="Jun">
+                                                            Jun
+                                                        </option>
+                                                        <option value="July">
+                                                            July
+                                                        </option>
+                                                        <option value="August">
+                                                            August
+                                                        </option>
+                                                        <option
+                                                            value="September"
+                                                        >
+                                                            September
+                                                        </option>
+                                                        <option value="October">
+                                                            October
+                                                        </option>
+                                                        <option
+                                                            value="November"
+                                                        >
+                                                            November
+                                                        </option>
+                                                        <option
+                                                            value="December"
+                                                        >
+                                                            December
+                                                        </option>
+                                                    </select>
+                                                    <small
+                                                        class="text-danger"
+                                                        v-if="
+                                                            errors.salary_month
+                                                        "
+                                                    >
+                                                        {{
+                                                            errors
+                                                                .salary_month[0]
+                                                        }}
+                                                    </small>
+                                                </div>
 
+                                                <div class="col-md-6">
+                                                    <label
+                                                        for="exampleFormControlSelect1"
+                                                        ><b>Salary</b></label
+                                                    >
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="exampleInputFirstName"
+                                                        placeholder="Enter Your Sallery"
+                                                        v-model="form.sallery"
+                                                    />
+                                                    <small
+                                                        class="text-danger"
+                                                        v-if="errors.sallery"
+                                                    >
+                                                        {{ errors.sallery[0] }}
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                      </select>
-   <small class="text-danger" v-if="errors.salary_month"> {{ errors.salary_month[0] }} </small>
-            </div>
-
-
-     <div class="col-md-6">
-     	<label for="exampleFormControlSelect1"><b>Salary</b></label>
-         <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Enter Your Sallery" v-model="form.sallery">
-         <small class="text-danger" v-if="errors.sallery"> {{ errors.sallery[0] }} </small>
-            </div>
-
-          </div>
-        </div>
-
-
-
-
-
-
-
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-block">PayNow</button>
-        </div>
-
-      </form>
-                  <hr>
-                  <div class="text-center">
-
-
-                  </div>
-                  <div class="text-center">
-                  </div>
+                                        <div class="form-group">
+                                            <button
+                                                type="submit"
+                                                class="btn btn-primary btn-block"
+                                            >
+                                                PayNow
+                                            </button>
+                                        </div>
+                                    </form>
+                                    <hr />
+                                    <div class="text-center"></div>
+                                    <div class="text-center"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-
-
 </template>
 
-
-
 <script type="text/javascript">
-
-  export default {
-    created(){
-      if (!User.loggedIn()) {
-        this.$router.push({name: '/'})
-      }
+export default {
+    created() {
+        if (!User.loggedIn()) {
+            this.$router.push({ name: "/" });
+        }
     },
 
-    data(){
-    return {
-      form:{
-        name: '',
-        email: '',
-        salary_month: '',
-        sallery: ''
+    data() {
+        return {
+            form: {
+                name: "",
+                email: "",
+                salary_month: "",
+                sallery: ""
+            },
+            errors: {}
+        };
+    },
+    created() {
+        let id = this.$route.params.id;
+        axios
+            .get("/api/employee/" + id)
+            .then(({ data }) => (this.form = data))
+            .catch(console.log("error"));
+    },
 
-      },
-      errors:{}
-    }
-  },
-  created(){
-  	let id = this.$route.params.id
-  	axios.get('/api/employee/'+id)
-  	.then(({data}) => (this.form = data))
-  	.catch(console.log('error'))
-  },
-
-  methods:{
-
-  SalaryPaid(){
-  	  let id = this.$route.params.id
-       axios.post('/api/salary/paid/'+id,this.form)
-       .then((res) => {
-        if(res.data){
-             Swal.fire(
-                  'Impossible',
-                  res.data,
-                  'error'
-                )
-                console.log(res.data)
-        }else{
-        this.$router.push({ name: 'given-salary'})
-        Notification.success()
+    methods: {
+        SalaryPaid() {
+            let id = this.$route.params.id;
+            axios
+                .post("/api/salary/paid/" + id, this.form)
+                .then(res => {
+                    if (res.data) {
+                        Swal.fire("Impossible", res.data, "error");
+                        console.log(res.data);
+                    } else {
+                        this.$router.push({ name: "given-salary" });
+                        Notification.success();
+                    }
+                })
+                .catch(error => (this.errors = error.response.data.errors));
         }
-       })
-       .catch(error =>this.errors = error.response.data.errors)
-     },
-  }
-
-
-  }
-
+    }
+};
 </script>
 
-
-<style type="text/css">
-
-</style>
+<style type="text/css"></style>

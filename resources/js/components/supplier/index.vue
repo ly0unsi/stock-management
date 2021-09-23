@@ -2,7 +2,7 @@
 
 <template>
 
-  <div>
+  <div class="page col-115">
 
  <div class="row col-md-12">
      <div class="col-md-6">

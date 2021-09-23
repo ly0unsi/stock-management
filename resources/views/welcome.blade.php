@@ -10,7 +10,7 @@
     <link href="{{ asset('backend/img/logo/logo.png')}}" rel="icon">
     <title>Easy Learning Invertory - Dashboard</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css')}}">
-
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
     <link href="{{ asset('backend/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{ asset('backend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{ asset('backend/css/ruang-admin.min.css')}}" rel="stylesheet">
@@ -190,9 +190,11 @@
 
                     <!-- Container Fluid-->
                     <div class="container-fluid" id="container-wrapper">
-                        <transition name="fade">
+                        <transition name="custom-classes-transition" enter-active-class="animated bounceInRight"
+                            leave-active-class="animated bounceOutLeft">
                             <router-view></router-view>
                         </transition>
+
                     </div>
                     <!---Container Fluid-->
                 </div>
