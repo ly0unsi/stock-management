@@ -1,5 +1,5 @@
 <template>
-    <div class="page
+    <div class="page col-115">
         <div class="row">
             <router-link to="/stock" class="btn btn-primary"
                 >Go Back
