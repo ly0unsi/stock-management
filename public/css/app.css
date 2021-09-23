@@ -76,12 +76,15 @@ body {
     text-align: left;
     background-color: #f8fafc;
 }
+.sidebar {
+    z-index: 1 !important;
+}
 
 [tabindex="-1"]:focus:not(:focus-visible) {
     outline: 0 !important;
 }
 .page {
-    position: absolute !important;
+    position: fixed !important;
 }
 hr {
     box-sizing: content-box;

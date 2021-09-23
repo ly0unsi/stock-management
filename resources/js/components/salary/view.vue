@@ -1,5 +1,5 @@
 <template>
-    <div class="page col-115">
+    <div class="page ">
         <div class="row">
             <router-link to="/salary" class="btn btn-primary"
                 >Go Back</router-link

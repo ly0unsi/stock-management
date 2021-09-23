@@ -2,7 +2,7 @@
 
 <template>
 
-  <div class="page col-115">
+  <div class="page
 
 
     <div class="row justify-content-center">
