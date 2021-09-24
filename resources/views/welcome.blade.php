@@ -120,6 +120,22 @@
                     </div>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCustomer"
+                        aria-expanded="true" aria-controls="collapseCustomer">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Customer</span>
+                    </a>
+                    <div id="collapseCustomer" class="collapse" aria-labelledby="headingBootstrap"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Customer</h6>
+                            <router-link class="collapse-item" to="/store-customer">Add one</router-link>
+                            <router-link class="collapse-item" to="/customer">See All</router-link>
+
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSalary"
                         aria-expanded="true" aria-controls="collapseSalary">
                         <i class="fas fa-cash-register"></i>
@@ -134,6 +150,13 @@
 
                         </div>
                     </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed">
+                        <i class="fas fa-store"></i>
+                        <router-link class="collapse-item" to="/stock"> <span>Stock</span></router-link>
+                    </a>
+
                 </li>
 
 
@@ -190,8 +213,7 @@
 
                     <!-- Container Fluid-->
                     <div class="container-fluid relative" id="container-wrapper">
-                        <transition name="custom-classes-transition"
-                            enter-active-class="animated fadeInRight animated__delay-2s">
+                        <transition name="custom-classes-transition" enter-active-class="animated fadeInDown">
                             <router-view></router-view>
                         </transition>
 

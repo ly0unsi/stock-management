@@ -1,10 +1,11 @@
 <template>
-    <div class="col-12">
+    <div>
         <div class="row">
-            <router-link to="/employees" class="btn text-primary">
+            <router-link to="/customer" class="btn text-primary">
                 <i class="fas fa-arrow-circle-left" style="font-size:35px"></i>
             </router-link>
         </div>
+
         <div class="row justify-content-center">
             <div class="col-xl-12 col-lg-12 col-md-12">
                 <div class="card shadow-sm my-2">
@@ -14,24 +15,27 @@
                                 <div class="login-form">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">
-                                            Employee Update
+                                            Customer Update
                                         </h1>
                                     </div>
 
                                     <form
                                         class="user"
-                                        @submit.prevent="employeeUpdate"
+                                        @submit.prevent="customerUpdate"
                                         enctype="multipart/form-data"
                                     >
                                         <div class="form-group">
                                             <div class="form-row">
                                                 <div class="col-md-6">
+                                                    <label
+                                                        for="exampleFormControlTextarea1"
+                                                        ><b
+                                                            >Customer Name
+                                                        </b></label
+                                                    >
                                                     <input
                                                         type="text"
                                                         class="form-control"
-                                                        v-bind="{
-                                                            value: form.name
-                                                        }"
                                                         id="exampleInputFirstName"
                                                         placeholder="Enter Your Full Name"
                                                         v-model="form.name"
@@ -45,6 +49,12 @@
                                                 </div>
 
                                                 <div class="col-md-6">
+                                                    <label
+                                                        for="exampleFormControlTextarea1"
+                                                        ><b
+                                                            >Customer Email
+                                                        </b></label
+                                                    >
                                                     <input
                                                         type="email"
                                                         class="form-control"
@@ -65,6 +75,12 @@
                                         <div class="form-group">
                                             <div class="form-row">
                                                 <div class="col-md-6">
+                                                    <label
+                                                        for="exampleFormControlTextarea1"
+                                                        ><b
+                                                            >Customer Address
+                                                        </b></label
+                                                    >
                                                     <input
                                                         type="text"
                                                         class="form-control"
@@ -81,74 +97,17 @@
                                                 </div>
 
                                                 <div class="col-md-6">
+                                                    <label
+                                                        for="exampleFormControlTextarea1"
+                                                        ><b
+                                                            >Customer Phone
+                                                        </b></label
+                                                    >
                                                     <input
                                                         type="text"
                                                         class="form-control"
                                                         id="exampleInputFirstName"
-                                                        placeholder="Enter Your Sallery"
-                                                        v-model="form.sallery"
-                                                    />
-                                                    <small
-                                                        class="text-danger"
-                                                        v-if="errors.sallery"
-                                                    >
-                                                        {{ errors.sallery[0] }}
-                                                    </small>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="form-row">
-                                                <div class="col-md-6">
-                                                    <input
-                                                        type="date"
-                                                        class="form-control"
-                                                        id="exampleInputFirstName"
-                                                        placeholder="Enter Your Joining Date"
-                                                        v-model="
-                                                            form.joining_date
-                                                        "
-                                                    />
-                                                    <small
-                                                        class="text-danger"
-                                                        v-if="
-                                                            errors.joining_date
-                                                        "
-                                                    >
-                                                        {{
-                                                            errors
-                                                                .joining_date[0]
-                                                        }}
-                                                    </small>
-                                                </div>
-
-                                                <div class="col-md-6">
-                                                    <input
-                                                        type="text"
-                                                        class="form-control"
-                                                        id="exampleInputFirstName"
-                                                        placeholder="Enter Your Nid"
-                                                        v-model="form.nid"
-                                                    />
-                                                    <small
-                                                        class="text-danger"
-                                                        v-if="errors.nid"
-                                                    >
-                                                        {{ errors.nid[0] }}
-                                                    </small>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="form-row">
-                                                <div class="col-md-6">
-                                                    <input
-                                                        type="text"
-                                                        class="form-control"
-                                                        id="exampleInputFirstName"
-                                                        placeholder="Enter Your phone Number"
+                                                        placeholder="Enter Your Phone"
                                                         v-model="form.phone"
                                                     />
                                                     <small
@@ -158,13 +117,19 @@
                                                         {{ errors.phone[0] }}
                                                     </small>
                                                 </div>
-                                                <div class="col-md-5">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="form-row">
+                                                <div class="col-md-6">
                                                     <input
                                                         type="file"
                                                         class="custom-file-input"
                                                         id="customFile"
                                                         @change="onFileSelected"
                                                     />
+
                                                     <small
                                                         class="text-danger"
                                                         v-if="errors.photo"
@@ -174,11 +139,11 @@
                                                     <label
                                                         class="custom-file-label"
                                                         for="customFile"
-                                                        >Profile Pic</label
+                                                        >Choose file</label
                                                     >
                                                 </div>
 
-                                                <div class="col-md-1">
+                                                <div class="col-md-6">
                                                     <img
                                                         :src="'/' + form.photo"
                                                         style="height: 40px; width: 40px;border-radius:50%"
@@ -223,12 +188,9 @@ export default {
                 name: "",
                 email: "",
                 phone: "",
-                sallery: "",
                 address: "",
                 photo: "",
-                newphoto: "",
-                nid: "",
-                joining_date: ""
+                newphoto: ""
             },
             errors: {}
         };
@@ -236,7 +198,7 @@ export default {
     created() {
         let id = this.$route.params.id;
         axios
-            .get("/api/employee/" + id)
+            .get("/api/customer/" + id)
             .then(({ data }) => (this.form = data))
             .catch(console.log("error"));
     },
@@ -250,17 +212,16 @@ export default {
                 let reader = new FileReader();
                 reader.onload = event => {
                     this.form.newphoto = event.target.result;
-                    console.log(this.form.newphoto);
                 };
                 reader.readAsDataURL(file);
             }
         },
-        employeeUpdate() {
+        customerUpdate() {
             let id = this.$route.params.id;
             axios
-                .patch("/api/employee/" + id, this.form)
+                .patch("/api/customer/" + id, this.form)
                 .then(() => {
-                    this.$router.push({ name: "employees" });
+                    this.$router.push({ name: "customer" });
                     Notification.success();
                 })
                 .catch(error => (this.errors = error.response.data.errors));

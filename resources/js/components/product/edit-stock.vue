@@ -1,14 +1,14 @@
 <template>
     <div class="col-12">
         <div class="row">
-            <router-link to="/stock" class="btn btn-primary"
-                >Go Back
+            <router-link to="/stock" class="btn text-primary">
+                <i class="fas fa-arrow-circle-left" style="font-size:35px"></i>
             </router-link>
         </div>
 
         <div class="row justify-content-center">
             <div class="col-xl-12 col-lg-12 col-md-12">
-                <div class="card shadow-sm my-5">
+                <div class="card shadow-sm my-3">
                     <div class="card-body p-0">
                         <div class="row">
                             <div class="col-lg-12">

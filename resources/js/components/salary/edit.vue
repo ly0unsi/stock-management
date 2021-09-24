@@ -1,9 +1,14 @@
 <template>
     <div class="col-12">
         <div class="row">
-            <router-link to="/salary" class="btn btn-primary"
-                >Go Back
-            </router-link>
+            <div class="row">
+                <router-link to="/salary" class="btn text-primary">
+                    <i
+                        class="fas fa-arrow-circle-left"
+                        style="font-size:35px"
+                    ></i>
+                </router-link>
+            </div>
         </div>
 
         <div class="row justify-content-center">

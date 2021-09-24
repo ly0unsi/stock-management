@@ -1,5 +1,10 @@
 <template>
     <div class="col-12">
+        <div class="row">
+            <router-link to="/category" class="btn text-primary">
+                <i class="fas fa-arrow-circle-left" style="font-size:35px"></i>
+            </router-link>
+        </div>
         <div class="row justify-content-center">
             <div class="col-xl-12 col-lg-12 col-md-12">
                 <div class="card shadow-sm my-2">

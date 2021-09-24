@@ -1,11 +1,11 @@
 <template>
-    <div class="col-12">
-        <div class="row col-md-12">
+    <div>
+        <div class="row col-12">
             <div class="col-md-6">
                 <router-link
-                    to="/store-product"
+                    to="/store-customer"
                     class="btn btn-primary float-left"
-                    >Add Product
+                    >Add Customer
                 </router-link>
             </div>
             <div class="col-md-6 float-right">
@@ -28,56 +28,53 @@
                     <div
                         class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
                     >
-                        <h6 class="m-0 font-weight-bold text-primary">Stock</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">
+                            Customer List
+                        </h6>
                     </div>
                     <div class="table-responsive">
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
                                     <th>Name</th>
-                                    <th>Code</th>
                                     <th>Photo</th>
-                                    <th>Category</th>
-                                    <th>Buying Price</th>
-                                    <th>Status</th>
-                                    <th>Quantity</th>
+                                    <th>Phone</th>
+                                    <th>Email</th>
+                                    <th>Address</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr
-                                    v-for="product in filtersearch"
-                                    :key="product.id"
+                                    v-for="customer in filtersearch"
+                                    :key="customer.id"
                                 >
-                                    <td>{{ product.product_name }}</td>
-                                    <td>{{ product.product_code }}</td>
+                                    <td>{{ customer.name }}</td>
                                     <td>
                                         <img
-                                            :src="product.image"
+                                            :src="customer.photo"
                                             id="em_photo"
                                         />
                                     </td>
-                                    <td>{{ product.category_name }}</td>
-                                    <td>{{ product.buying_price }}</td>
-                                    <td v-if="product.product_quantity >= 1">
-                                        <span class="badge badge-success"
-                                            >Available
-                                        </span>
-                                    </td>
-                                    <td v-else>
-                                        <span class="badge badge-danger"
-                                            >Stock Out
-                                        </span>
-                                    </td>
-                                    <td>{{ product.product_quantity }}</td>
+                                    <td>{{ customer.phone }}</td>
+                                    <td>{{ customer.email }}</td>
+                                    <td>{{ customer.address }}</td>
                                     <td>
                                         <router-link
                                             :to="{
-                                                name: 'edit-stock',
-                                                params: { id: product.id }
+                                                name: 'edit-customer',
+                                                params: { id: customer.id }
                                             }"
                                             class="btn btn-sm btn-primary"
                                             >Edit</router-link
+                                        >
+
+                                        <a
+                                            @click="deleteCustomer(customer.id)"
+                                            class="btn btn-sm btn-danger"
+                                            ><font color="#ffffff"
+                                                >Delete</font
+                                            ></a
                                         >
                                     </td>
                                 </tr>
@@ -101,28 +98,57 @@ export default {
     },
     data() {
         return {
-            products: [],
+            customers: [],
             searchTerm: ""
         };
     },
     computed: {
         filtersearch() {
-            return this.products.filter(product => {
-                return product.product_name.match(this.searchTerm);
+            return this.customers.filter(customer => {
+                return customer.name.match(this.searchTerm);
             });
         }
     },
 
     methods: {
-        allProduct() {
+        allCustomer() {
             axios
-                .get("/api/product/")
-                .then(({ data }) => (this.products = data))
+                .get("/api/customer/")
+                .then(({ data }) => (this.customers = data))
                 .catch();
+        },
+        deleteCustomer(id) {
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+            }).then(result => {
+                if (result.value) {
+                    axios
+                        .delete("/api/customer/" + id)
+                        .then(() => {
+                            this.customers = this.customers.filter(customer => {
+                                return customer.id != id;
+                            });
+                        })
+                        .catch(() => {
+                            this.$router.push({ name: "customer" });
+                        });
+                    Swal.fire(
+                        "Deleted!",
+                        "Your file has been deleted.",
+                        "success"
+                    );
+                }
+            });
         }
     },
     created() {
-        this.allProduct();
+        this.allCustomer();
     }
 };
 </script>

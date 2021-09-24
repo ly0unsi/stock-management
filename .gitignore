@@ -4,6 +4,7 @@
 /public/backend/employee
 /public/backend/product
 /public/backend/supplier
+/public/backend/customer
 /storage/*.key
 /vendor
 .env

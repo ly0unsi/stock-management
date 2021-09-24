@@ -127,12 +127,14 @@ export default {
                     this.$router.push({ name: "home" });
                 })
                 .catch(error => (this.errors = error.response.data.errors))
-                .catch(
-                    Toast.fire({
-                        icon: "warning",
-                        title: this.errors
-                    })
-                );
+                .catch(error => {
+                    if (error) {
+                        Toast.fire({
+                            icon: "warning",
+                            title: this.errors
+                        });
+                    }
+                });
         }
     }
 };
