@@ -23,8 +23,12 @@
                             <h6 class="m-0 font-weight-bold text-primary">
                                 Expense Insert
                             </h6>
-                            <a class="btn btn-sm btn-info"
-                                ><font color="#ffffff">Add Customer</font></a
+                            <router-link
+                                to="store-customer"
+                                class="btn btn-sm btn-primary"
+                                ><font color="#ffffff"
+                                    >Add Customer</font
+                                ></router-link
                             >
                         </div>
 
@@ -81,7 +85,7 @@
                                                 @click="removeItem(cart.id)"
                                                 class="btn btn-sm btn-primary py-0"
                                                 ><font color="#ffffff"
-                                                    >X</font
+                                                    >x</font
                                                 ></a
                                             >
                                         </td>

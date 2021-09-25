@@ -5076,6 +5076,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = (_created$created$data = {
   created: function created() {
     if (!User.loggedIn()) {
@@ -55112,8 +55116,11 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c(
-                  "a",
-                  { staticClass: "btn btn-sm btn-info" },
+                  "router-link",
+                  {
+                    staticClass: "btn btn-sm btn-primary",
+                    attrs: { to: "store-customer" }
+                  },
                   [
                     _c("font", { attrs: { color: "#ffffff" } }, [
                       _vm._v("Add Customer")
@@ -55121,7 +55128,8 @@ var render = function() {
                   ],
                   1
                 )
-              ]
+              ],
+              1
             ),
             _vm._v(" "),
             _c(
@@ -55219,7 +55227,7 @@ var render = function() {
                               },
                               [
                                 _c("font", { attrs: { color: "#ffffff" } }, [
-                                  _vm._v("X")
+                                  _vm._v("x")
                                 ])
                               ],
                               1
