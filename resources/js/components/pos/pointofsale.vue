@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="container-fluid" id="container-wrapper">
+        <div id="container-wrapper">
             <div
                 class="d-sm-flex align-items-center justify-content-between mb-4"
             >
@@ -40,20 +40,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="cart in carts" :key="cart.id">
+                                    <tr
+                                        v-for="cart in cartProducts"
+                                        :key="cart.id"
+                                    >
                                         <td>{{ cart.pro_name }}</td>
                                         <td>
-                                            <input
-                                                type="text"
-                                                readonly
-                                                style="width: 15px;"
-                                                :value="cart.pro_quantity"
-                                            />
+                                            <span class="btn btn-sm py-0">
+                                                {{ cart.pro_quantity }}
+                                            </span>
                                             <button
                                                 @click.prevent="
                                                     increment(cart.id)
                                                 "
-                                                class="btn btn-sm btn-success"
+                                                class="btn btn-sm btn-success py-0"
                                             >
                                                 +
                                             </button>
@@ -61,13 +61,13 @@
                                                 @click.prevent="
                                                     decrement(cart.id)
                                                 "
-                                                class="btn btn-sm btn-danger"
+                                                class="btn btn-sm btn-danger py-0"
                                                 v-if="cart.pro_quantity >= 2"
                                             >
                                                 -
                                             </button>
                                             <button
-                                                class="btn btn-sm btn-danger"
+                                                class="btn btn-sm btn-danger py-0"
                                                 v-else
                                                 disabled=""
                                             >
@@ -79,7 +79,7 @@
                                         <td>
                                             <a
                                                 @click="removeItem(cart.id)"
-                                                class="btn btn-sm btn-primary"
+                                                class="btn btn-sm btn-primary py-0"
                                                 ><font color="#ffffff"
                                                     >X</font
                                                 ></a
@@ -227,18 +227,18 @@
                                         type="text"
                                         v-model="searchTerm"
                                         class="form-control"
-                                        style="width: 560px;"
+                                        style="width:100%;"
                                         placeholder="Search Product"
                                     />
 
                                     <div class="row">
                                         <div
-                                            class="col-lg-4 col-md-4 col-sm-6 col-6"
+                                            class="col-lg-3 col-md-3 col-sm-6 col-6"
                                             v-for="product in filtersearch"
                                             :key="product.id"
                                         >
-                                            <button
-                                                class="btn btn-sm"
+                                            <div
+                                                style="cursor:pointer"
                                                 @click.prevent="
                                                     AddToCart(product.id)
                                                 "
@@ -276,7 +276,7 @@
                                                         </span>
                                                     </div>
                                                 </div>
-                                            </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -293,18 +293,18 @@
                                     type="text"
                                     v-model="getsearchTerm"
                                     class="form-control"
-                                    style="width: 560px;"
+                                    style="width: 100%;"
                                     placeholder="Search Product"
                                 />
 
                                 <div class="row">
                                     <div
-                                        class="col-lg-4 col-md-4 col-sm-6 col-6"
+                                        class="col-lg-3 col-md-3 col-sm-6 col-6"
                                         v-for="getproduct in getfiltersearch"
                                         :key="getproduct.id"
                                     >
-                                        <button
-                                            class="btn btn-sm"
+                                        <div
+                                            style="cursor:pointer"
                                             @click.prevent="
                                                 AddToCart(getproduct.id)
                                             "
@@ -342,7 +342,7 @@
                                                     </span>
                                                 </div>
                                             </div>
-                                        </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -388,7 +388,7 @@ export default {
             getsearchTerm: "",
             customers: "",
             errors: "",
-            carts: [],
+            cartProducts: [],
             vats: ""
         };
     },
@@ -405,17 +405,17 @@ export default {
         },
         qty() {
             let sum = 0;
-            for (let i = 0; i < this.carts.length; i++) {
-                sum += parseFloat(this.carts[i].pro_quantity);
+            for (let i = 0; i < this.cartProducts.length; i++) {
+                sum += parseFloat(this.cartProducts[i].pro_quantity);
             }
             return sum;
         },
         subtotal() {
             let sum = 0;
-            for (let i = 0; i < this.carts.length; i++) {
+            for (let i = 0; i < this.cartProducts.length; i++) {
                 sum +=
-                    parseFloat(this.carts[i].pro_quantity) *
-                    parseFloat(this.carts[i].product_price);
+                    parseFloat(this.cartProducts[i].pro_quantity) *
+                    parseFloat(this.cartProducts[i].product_price);
             }
             return sum;
         }
@@ -430,12 +430,16 @@ export default {
                     Reload.$emit("AfterAdd");
                     Notification.cart_success();
                 })
-                .catch();
+                .then(res => {
+                    if (res.data) {
+                        Notification.cart_error();
+                    }
+                });
         },
         cartProduct() {
             axios
                 .get("/api/cart/product/")
-                .then(({ data }) => (this.carts = data))
+                .then(({ data }) => (this.cartProducts = data))
                 .catch();
         },
         removeItem(id) {
@@ -454,7 +458,11 @@ export default {
                     Reload.$emit("AfterAdd");
                     Notification.success();
                 })
-                .catch();
+                .then(res => {
+                    if (res.data) {
+                        Notification.cart_error();
+                    }
+                });
         },
         decrement(id) {
             axios
@@ -495,6 +503,9 @@ export default {
             axios
                 .get("/api/product/")
                 .then(({ data }) => (this.products = data))
+                .then(() => {
+                    Reload.$emit("AfterAdd");
+                })
                 .catch();
         },
         allCategory() {

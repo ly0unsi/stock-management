@@ -97,6 +97,7 @@
                                                     >
                                                         <option
                                                             :value="category.id"
+                                                            :key="category.id"
                                                             v-for="category in categories"
                                                             >{{
                                                                 category.category_name
@@ -119,6 +120,7 @@
                                                     >
                                                         <option
                                                             :value="supplier.id"
+                                                            :key="supplier.id"
                                                             v-for="supplier in suppliers"
                                                             >{{
                                                                 supplier.name
