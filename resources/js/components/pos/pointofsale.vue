@@ -373,6 +373,9 @@ export default {
         Reload.$on("AfterAdd", () => {
             this.cartProduct();
         });
+        if (this.cartProducts.length > 0) {
+            this.show = true;
+        }
     },
     data() {
         return {
@@ -380,7 +383,7 @@ export default {
             pay: "",
             due: "",
             payby: "",
-
+            show: false,
             products: [],
             categories: "",
             getproducts: [],

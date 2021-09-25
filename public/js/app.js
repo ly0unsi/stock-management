@@ -5095,12 +5095,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   Reload.$on("AfterAdd", function () {
     _this.cartProduct();
   });
+
+  if (this.cartProducts.length > 0) {
+    this.show = true;
+  }
 }), _defineProperty(_created$created$data, "data", function data() {
   return {
     customer_id: "",
     pay: "",
     due: "",
     payby: "",
+    show: false,
     products: [],
     categories: "",
     getproducts: [],

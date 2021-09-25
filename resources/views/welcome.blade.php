@@ -218,7 +218,7 @@
 
                     <!-- Container Fluid-->
                     <div class="container-fluid relative" id="container-wrapper">
-                        <transition name="custom-classes-transition" enter-active-class="animated fadeInDown">
+                        <transition name="custom-classes-transition" enter-active-class="animated fadeInRight">
                             <router-view></router-view>
                         </transition>
 
